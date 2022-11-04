@@ -5,15 +5,15 @@ const prisma = new PrismaClient()
 async function main() {
   const user = await prisma.user.create({
     data: {
-      name: 'John Doe',
-      email: 'john.doe@gmail.com',
+      name: 'John Doey',
+      email: 'john.doe2@gmail.com',
       avatarUrl: 'https://github.com/munizeduardo.png',
     }
   })
 
-  const pool = await prisma.pool.create({
+  const poll = await prisma.poll.create({
     data: {
-      title: 'Exmaple Pool',
+      title: 'Exmaple Poll',
       code: 'BOL123',
       onwerId: user.id,
 
@@ -46,9 +46,9 @@ async function main() {
 
           participant: {
             connect: {
-              userId_poolId: {
+              userId_pollId: {
                 userId: user.id,
-                poolId: pool.id
+                pollId: poll.id
               }
             }
           }

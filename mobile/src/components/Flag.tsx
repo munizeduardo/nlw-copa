@@ -4,7 +4,7 @@ export function Flag({ ...rest }: IImageProps) {
   return (
     <Image
       {...rest}
-      alt="Bandeira"
+      alt="Flag"
       w={8}
       h={6}
       mx={3}

@@ -1,25 +1,27 @@
+import { useNavigation } from '@react-navigation/native';
 import { Row, Text, Pressable } from 'native-base';
 
-export function EmptyPoolList() {
+export function EmptyPollList() {
+  const { navigate } = useNavigation()
   return (
     <Row flexWrap="wrap" justifyContent="center">
       <Text color="white" fontSize="sm" textAlign="center">
-        Você ainda não está participando de {'\n'} nenhum bolão, que tal
+        You haven't joined any poll, how about you {'\n'}
       </Text>
 
-      <Pressable>
+      <Pressable onPress={() => navigate('find')}>
           <Text textDecorationLine="underline" color="yellow.500" textDecoration="underline">
-            buscar um por código
+            search by code
           </Text>
       </Pressable>
 
       <Text color="white" fontSize="sm" textAlign="center" mx={1}>
-        ou
+        or
       </Text>
 
-      <Pressable>
+      <Pressable onPress={() => navigate('new')}>
         <Text textDecorationLine="underline"  color="yellow.500">
-          criar um novo
+          create a new poll
         </Text>
       </Pressable>
 
